@@ -2,13 +2,21 @@ const dataAtual = new Date();
 
 const tituloData = document.querySelector('#titulo');
 
+function adicionarZero (numero) {
+    if (numero < 10) {
+        return "0" + numero;
+    } else {
+        return numero;
+    }
+}
+
 function textoData(data) {
     let diaDaSemana = data.getDay();
-    const diaDoMes = data.getDate();
+    const diaDoMes = adicionarZero(data.getDate());
     let mes = data.getMonth();
     const ano = data.getFullYear();
-    const hora = data.getHours();
-    const minuto = data.getMinutes();
+    const hora = adicionarZero(data.getHours());
+    const minuto = adicionarZero(data.getMinutes());
 
     switch (diaDaSemana) {
         case 0:

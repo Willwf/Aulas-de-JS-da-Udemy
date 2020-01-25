@@ -2,89 +2,96 @@ const dataAtual = new Date();
 
 const tituloData = document.querySelector('#titulo');
 
-function adicionarZero (numero) {
-    if (numero < 10) {
-        return "0" + numero;
-    } else {
-        return numero;
+function adicionarZero(numero) {
+    return numero < 10 ? "0" + numero : numero;
+}
+
+function nomeDoDiaDaSemana(numeroDoDia) {
+
+    switch (numeroDoDia) {
+        case 0:
+            numeroDoDia = "Domingo"
+            break;
+        case 1:
+            numeroDoDia = "Segunda-feira"
+            break;
+        case 2:
+            numeroDoDia = "Terça-feira"
+            break;
+        case 3:
+            numeroDoDia = "Quarta-feira"
+            break;
+        case 4:
+            numeroDoDia = "Quinta Feira"
+            break;
+        case 5:
+            numeroDoDia = "Sexta-Feira"
+            break;
+        case 6:
+            numeroDoDia = "Sábado"
+            break;
     }
+
+    return numeroDoDia;
+
+}
+
+function nomeDoMes(numeroDoMes) {
+
+    switch (numeroDoMes) {
+        case 0:
+            numeroDoMes = "janeiro"
+            break;
+        case 1:
+            numeroDoMes = "fevereiro"
+            break;
+        case 2:
+            numeroDoMes = "março"
+            break;
+        case 3:
+            numeroDoMes = "abril"
+            break;
+        case 4:
+            numeroDoMes = "maio"
+            break;
+        case 5:
+            numeroDoMes = "junho"
+            break;
+        case 6:
+            numeroDoMes = "julho"
+            break;
+        case 7:
+            numeroDoMes = "agosto"
+            break;
+        case 8:
+            numeroDoMes = "setembro"
+            break;
+        case 9:
+            numeroDoMes = "outubro"
+            break;
+        case 10:
+            numeroDoMes = "novembro"
+            break;
+        case 11:
+            numeroDoMes = "dezembro"
+            break;
+    }
+    return numeroDoMes;
 }
 
 function textoData(data) {
     let diaDaSemana = data.getDay();
-    const diaDoMes = adicionarZero(data.getDate());
+
+    const diaDoMes = data.getDate();
     let mes = data.getMonth();
     const ano = data.getFullYear();
+
     const hora = adicionarZero(data.getHours());
     const minuto = adicionarZero(data.getMinutes());
 
-    switch (diaDaSemana) {
-        case 0:
-            diaDaSemana = "Domingo"
-            break;
-        case 1:
-            diaDaSemana = "Segunda-feira"
-            break;
-        case 2:
-            diaDaSemana = "Terça-feira"
-            break;
-        case 3:
-            diaDaSemana = "Quarta-feira"
-            break;
-        case 4:
-            diaDaSemana = "Quinta Feira"
-            break;
-        case 5:
-            diaDaSemana = "Sexta-Feira"
-            break;
-        case 6:
-            diaDaSemana = "Sábado"
-            break;
-    }
 
-    switch (mes) {
-        case 0:
-            mes = "Janeiro"
-            break;
-        case 1:
-            mes = "Fevereiro"
-            break;
-        case 2:
-            mes = "Março"
-            break;
-        case 3:
-            mes = "Abril"
-            break;
-        case 4:
-            mes = "Maio"
-            break;
-        case 5:
-            mes = "Junho"
-            break;
-        case 6:
-            mes = "Julho"
-            break;
-        case 7:
-            mes = "Agosto"
-            break;
-        case 8:
-            mes = "Setembro"
-            break;
-        case 9:
-            mes = "Outubro"
-            break;
-        case 10:
-            mes = "Novembro"
-            break;
-        case 11:
-            mes = "Dezembro"
-            break;
-    }
-
-
-
-    tituloData.innerHTML = `${diaDaSemana}, ${diaDoMes} de ${mes} de ${ano} <br>
-    ${hora}:${minuto}` ;
+    tituloData.innerHTML = `${nomeDoDiaDaSemana(diaDaSemana)}, ${diaDoMes} de ${nomeDoMes(mes)} de ${ano} <br>
+    ${hora}:${minuto}`;
 
 }
 

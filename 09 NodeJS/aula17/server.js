@@ -2,8 +2,8 @@ require('dotenv').config();
 
 const express = require('express');
 const app = express();
-const mongoose = require('mongoose');
 
+const mongoose = require('mongoose');
 mongoose.connect(process.env.CONNECTIONSTRING, {useNewUrlParser: true, useUnifiedTopology: true})
   .then(() => {
     app.emit('pronto');
@@ -21,7 +21,9 @@ const csrf = require('csurf');
 const { middlewareGlobal, checkCsrfError, csrfMiddleware } = require('./src/middlewares/middleware');
 
 app.use(helmet());
+
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(express.static(path.resolve(__dirname, 'public')));
 
 const sessionOptions = session({

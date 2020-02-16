@@ -7,6 +7,6 @@ exports.paginaInicial = (req, res) => {
 };
 
 exports.trataPost = (req, res) => {
-  res.send('Sou sua nova rota de POST');
+  res.send(req.body);
   return;
 }
